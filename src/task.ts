@@ -216,6 +216,7 @@ export const TaskItem = function (pID, pName, pStart, pEnd, pClass, pLink, pMile
         case 'week': date.setMinutes(date.getMinutes() + (value * 60 * 24 * 7)); break;
         case 'month': date.setMonth(date.getMonth() + (value)); break;
         case 'quarter': date.setMonth(date.getMonth() + (value * 3)); break;
+        case 'year': date.setFullYear(date.getFullYear() + value); break;
       }
       return date
     }
@@ -269,6 +270,7 @@ export const TaskItem = function (pID, pName, pStart, pEnd, pClass, pLink, pMile
       case 'week': vUnits = 'day'; break;
       case 'month': vUnits = 'week'; break;
       case 'quarter': vUnits = 'month'; break;
+      case 'year': vUnits = 'year'; break;
       default: vUnits = pFormat; break;
     }
 
@@ -286,6 +288,7 @@ export const TaskItem = function (pID, pName, pStart, pEnd, pClass, pLink, pMile
       case 'week': tmpPer = Math.round(hours / 24 / 7); vDuration = tmpPer + ' ' + ((tmpPer != 1) ? pLang['wks'] : pLang['wk']); break;
       case 'month': tmpPer = Math.round(hours / 24 / 7 / 4.35); vDuration = tmpPer + ' ' + ((tmpPer != 1) ? pLang['mths'] : pLang['mth']); break;
       case 'quarter': tmpPer = Math.round(hours / 24 / 7 / 13); vDuration = tmpPer + ' ' + ((tmpPer != 1) ? pLang['qtrs'] : pLang['qtr']); break;
+      case 'year': tmpPer = Math.round(hours / 24 / 365); vDuration = tmpPer + ' ' + ((tmpPer != 1) ? pLang['yrs'] : pLang['yr']); break;
     }
     return vDuration;
   }

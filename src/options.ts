@@ -29,7 +29,7 @@ export const includeGetSet = function () {
   this.setUseSort = function (pVal) { this.vUseSort = pVal; };
   this.setUseSingleCell = function (pVal) { this.vUseSingleCell = pVal * 1; };
   this.setFormatArr = function () {
-    let vValidFormats = 'hour day week month quarter';
+    let vValidFormats = 'hour day week month quarter year';
     this.vFormatArr = new Array();
     for (let i = 0, j = 0; i < arguments.length; i++) {
       if (vValidFormats.indexOf(arguments[i].toLowerCase()) != -1 && arguments[i].length > 1) {
@@ -82,6 +82,8 @@ export const includeGetSet = function () {
   this.setMonthMinorDateDisplayFormat = function (pVal) { this.vMonthMinorDateDisplayFormat = parseDateFormatStr(pVal); };
   this.setQuarterMajorDateDisplayFormat = function (pVal) { this.vQuarterMajorDateDisplayFormat = parseDateFormatStr(pVal); };
   this.setQuarterMinorDateDisplayFormat = function (pVal) { this.vQuarterMinorDateDisplayFormat = parseDateFormatStr(pVal); };
+  this.setYearMajorDateDisplayFormat = function (pVal) { this.vYearMajorDateDisplayFormat = parseDateFormatStr(pVal); };
+  this.setYearMinorDateDisplayFormat = function (pVal) { this.vYearMinorDateDisplayFormat = parseDateFormatStr(pVal); };
   this.setCaptionType = function (pType) { this.vCaptionType = pType; };
   this.setFormat = function (pFormat) {
     this.vFormat = pFormat;
@@ -95,6 +97,7 @@ export const includeGetSet = function () {
   this.setWeekColWidth = function (pWidth) { this.vWeekColWidth = pWidth; };
   this.setMonthColWidth = function (pWidth) { this.vMonthColWidth = pWidth; };
   this.setQuarterColWidth = function (pWidth) { this.vQuarterColWidth = pWidth; };
+  this.setYearColWidth = function (pWidth) { this.vYearColWidth = pWidth; };
   this.setRowHeight = function (pHeight) { this.vRowHeight = pHeight; };
   this.setLang = function (pLang) { if (this.vLangs[pLang]) this.vLang = pLang; };
   this.setChartBody = function (pDiv) { if (typeof HTMLDivElement !== 'function' || pDiv instanceof HTMLDivElement) this.vChartBody = pDiv; };
@@ -179,6 +182,8 @@ export const includeGetSet = function () {
   this.getMonthMinorDateDisplayFormat = function () { return this.vMonthMinorDateDisplayFormat; };
   this.getQuarterMajorDateDisplayFormat = function () { return this.vQuarterMajorDateDisplayFormat; };
   this.getQuarterMinorDateDisplayFormat = function () { return this.vQuarterMinorDateDisplayFormat; };
+  this.getYearMajorDateDisplayFormat = function () { return this.vYearMajorDateDisplayFormat; };
+  this.getYearMinorDateDisplayFormat = function () { return this.vYearMinorDateDisplayFormat; };
   this.getCaptionType = function () { return this.vCaptionType; };
   this.getMinGpLen = function () { return this.vMinGpLen; };
   this.getScrollTo = function () { return this.vScrollTo; };
@@ -187,6 +192,7 @@ export const includeGetSet = function () {
   this.getWeekColWidth = function () { return this.vWeekColWidth; };
   this.getMonthColWidth = function () { return this.vMonthColWidth; };
   this.getQuarterColWidth = function () { return this.vQuarterColWidth; };
+  this.getYearColWidth = function () { return this.vYearColWidth; };
   this.getRowHeight = function () { return this.vRowHeight; };
   this.getChartBody = function () { return this.vChartBody; };
   this.getChartHead = function () { return this.vChartHead; };

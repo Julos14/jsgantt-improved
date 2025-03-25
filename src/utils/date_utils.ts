@@ -38,6 +38,10 @@ export const getMinDate = function (pList, pFormat, pMinDate) {
     else if (vDate.getMonth() == 9 || vDate.getMonth() == 10 || vDate.getMonth() == 11)
       vDate.setFullYear(vDate.getFullYear(), 9, 1);
   }
+  else if (pFormat == 'year') {
+    vDate.setDate(vDate.getDate() - 365);
+    vDate.setFullYear(vDate.getFullYear(), 0, 1);
+  }
   else if (pFormat == 'hour') {
     vDate.setHours(vDate.getHours() - 1);
     while (vDate.getHours() % 6 != 0) vDate.setHours(vDate.getHours() - 1);
@@ -87,6 +91,10 @@ export const getMaxDate = function (pList, pFormat, pMaxDate) {
       vDate.setFullYear(vDate.getFullYear(), 8, 30);
     else if (vDate.getMonth() == 9 || vDate.getMonth() == 10 || vDate.getMonth() == 11)
       vDate.setFullYear(vDate.getFullYear(), 11, 31);
+  }
+  else if (pFormat == 'year') {
+    // Set to last day of current Year
+    vDate.setFullYear(vDate.getFullYear(), 11, 31);
   }
   else if (pFormat == 'hour') {
     if (vDate.getHours() == 0) vDate.setDate(vDate.getDate() + 1);

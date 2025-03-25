@@ -124,6 +124,7 @@ export const getOffset = function (pStartDate, pEndDate, pColWidth, pFormat, pSh
   const MONTH_CELL_MARGIN_WIDTH = 3; // Cell margin for 'month' format
   const QUARTER_CELL_MARGIN_WIDTH = 3; // Cell margin for 'quarter' format
   const HOUR_CELL_MARGIN_WIDTH = 3; // Cell margin for 'hour' format
+  const YEAR_CELL_MARGIN_WIDTH = 3; // Cell margin for 'year' format
 
   let vMonthDaysArr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
   let curTaskStart = new Date(pStartDate.getTime());
@@ -169,6 +170,9 @@ export const getOffset = function (pStartDate, pEndDate, pColWidth, pFormat, pSh
     let vDaysCrctn = (curTaskEnd.getTime() - vPosTmpDate.getTime()) / (86400000);
 
     vTaskRightPx = Math.ceil((vMonthsDiff * ((pColWidth + QUARTER_CELL_MARGIN_WIDTH) / 3)) + (vDaysCrctn * (pColWidth / 90)) - 1);
+  }
+  else if (pFormat == 'year') {
+    vTaskRightPx = Math.ceil((vTaskRight / (24 * 365)) * (pColWidth + YEAR_CELL_MARGIN_WIDTH) - 1);
   }
   else if (pFormat == 'hour') {
     // can't just calculate sum because of daylight savings changes
